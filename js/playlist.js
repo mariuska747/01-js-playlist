@@ -52,12 +52,12 @@ const musicCatalog = () => {
   const createPlaylist = (playlistName) => {
     //playlists = [...playlists, playlistName];
     playlists = [...playlists, { name:playlistName, songs:[] } ];
-    if (playlists.name === playlistName){
-      throw new Error ('La lista ya existe')
-    }
   }
    
   
+
+
+
 
 
   /**
@@ -71,6 +71,8 @@ const musicCatalog = () => {
 
 
 
+
+
   /**
    * Removes a playlist from the catalog.
    * @param {string} playlistName - The name of the playlist to remove.
@@ -79,6 +81,10 @@ const musicCatalog = () => {
       playlists = playlists.filter(element => element.name !== playlistName);
       //console.log(playlists)
     };
+
+
+
+
 
 
 
@@ -118,14 +124,15 @@ const musicCatalog = () => {
 
 
 
+
+
+
   /**
    * Removes a song from a specific playlist.
    * @param {string} playlistName - The name of the playlist to remove the song from.
    * @param {string} title - The title of the song to remove.
    * @throws {Error} If the playlist or song is not found.
    */
-
-  
   const removeSongFromPlaylist = (playlistName, song) => {
 
     const playlist = playlists.find((playlist) => playlist.name === playlistName);
@@ -157,6 +164,11 @@ const musicCatalog = () => {
   };
 
 
+
+
+
+
+
   /**
    * Marks a song as a favorite or removes the favorite status.
    * @param {string} playlistName - The name of the playlist containing the song.
@@ -186,6 +198,11 @@ const musicCatalog = () => {
   };
 
 
+
+
+
+
+
   /**
    * Sorts songs in a specific playlist by a given criterion (title, artist, or duration).
    * @param {string} playlistName - The name of the playlist to sort songs in.
@@ -195,7 +212,7 @@ const musicCatalog = () => {
    */
   const sortSongs = (playlistName, criterion) => {
 
-    // está refactorizado. Código inicial comentado
+    // está refactorizado. 
 
 
     const actualPlaylist = playlists.find(element => element.name === playlistName);
@@ -217,44 +234,6 @@ const musicCatalog = () => {
       }});
       
     return actualPlaylist.songs  
-  
-    /*
-    const changeCriteria = (criteria) => {
-      
-        actualPlaylist.songs.sort((a,b) => (
-          a[criteria] < b[criteria] ? -1: 
-          a[criteria] > b[criteria] ? 1: 
-          0
-        ))
-          */
-      /*  
-      if (criterion === 'duration'){
-        actualPlaylist.songs.sort((a,b) => a.duration - b.duration);
-      }
-      else if (criterion === 'artist'){
-        changeCriteria ('artist');
-      }
-      else if (criterion === 'title'){
-        changeCriteria ('title');
-      }
-      */
-
-      // inicio
-    /** 
-    else if (criterion === 'artist'){
-      actualPlaylist.songs.sort((a,b) =>{
-      if (a.artist < b.artist) return -1;
-      else if(a.artist > b.artist) return 1;
-      return 0;
-    });
-
-    } else if (criterion === 'title'){
-        actualPlaylist.songs.sort((a,b) =>{
-        if (a.title < b.title) return -1;
-        else if(a.title > b.title) return 1;
-        return 0;
-    });
-    */
     
       
   };
@@ -264,6 +243,8 @@ const musicCatalog = () => {
   return { createPlaylist, addSongToPlaylist, removeSongFromPlaylist, sortSongs, getAllPlaylists, removePlaylist, favoriteSong };
 
 };
+
+
 
 const song = { title: 'Billie Jean', artist: 'Michael Jackson', genre: 'Pop', duration: 300 };
 const catalog = musicCatalog();
